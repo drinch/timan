@@ -5,11 +5,13 @@
 
 #include "task.h"
 
-void inputmodule(std::priority_queue<task> &q);
-void outputmodule(std::priority_queue<task> &q);
+void inputmodule(std::priority_queue<task> &t,std::priority_queue<task> &r);
+void outputmodule(std::priority_queue<task> &t,std::priority_queue<task> &r);
 //command
-void add(std::priority_queue<task> &q);
-void check(std::priority_queue<task> &q);
-void list(std::priority_queue<task> &q);
+bool processing_command(std::string command,std::priority_queue<task> &t,std::priority_queue<task> &r);
+void add(std::priority_queue<task> &t,std::priority_queue<task> &r);
+void check(std::priority_queue<task> &t);
+void list(std::priority_queue<task> &t);
+void remind(std::priority_queue<task> &r);
 
 #endif

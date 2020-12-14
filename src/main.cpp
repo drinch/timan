@@ -9,25 +9,15 @@
 #include "task.h"
 #include "solve.h"
 
-std::priority_queue<task>q;
+std::priority_queue<task>t,r;
 int main() {
-	inputmodule(q);
+	inputmodule(t,r);
+	processing_command("remind",t,r);
 	std::string command;
-	while(1) {
+	do{
 		std::cout<<">";
 		std::cin>>command;
-		if(command=="exit") break;
-		else if(command=="add") {
-			add(q);
-		} else if(command=="check") {
-			check(q);
-		} else if(command=="list") {
-			list(q);
-		} else {
-			std::cout<<"wrong\n";
-			continue;
-		}
-	}
-	outputmodule(q);
+	}while(processing_command(command,t,r));
+	outputmodule(t,r);
 	return 0;
 }

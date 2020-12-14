@@ -51,17 +51,21 @@ struct task
         for(i=0;i<3;i++){
             if(c=='\n')break;
             while(c==' ') c=getchar();
+            if(c=='\n')break;
             while(c>='0'&&c<='9'){
                 a[i]*=10;
                 a[i]+=c-'0';
                 c=getchar();
             }
         }
-        ddl.tm_mday=a[0];
-        ddl.tm_mon=a[1];
-        ddl.tm_year=a[2];
-        if(i<3) ddl.tm_year=gettime().tm_year;
-        if(i<2) ddl.tm_mon=gettime().tm_mon;
+        ddl=gettime();
+        if(i>0){
+        	ddl.tm_mday=a[i-1];
+        	if(i>1){
+        		ddl.tm_mon=a[i-2];
+        		if(i>2) ddl.tm_year=a[0];
+			}
+		}
     }
     void outf(std::ofstream &out)
     {
