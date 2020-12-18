@@ -47,23 +47,23 @@ struct task
     {
         std::cin >>name>>level;
         char c=getchar();
-        int a[3]={0,0,0},i;
+        int t[3]={0,0,0},i;
         for(i=0;i<3;i++){
             if(c=='\n')break;
             while(c==' ') c=getchar();
             if(c=='\n')break;
             while(c>='0'&&c<='9'){
-                a[i]*=10;
-                a[i]+=c-'0';
+                t[i]*=10;
+                t[i]+=c-'0';
                 c=getchar();
             }
         }
         ddl=gettime();
         if(i>0){
-        	ddl.tm_mday=a[i-1];
+        	ddl.tm_mday=t[i-1];
         	if(i>1){
-        		ddl.tm_mon=a[i-2];
-        		if(i>2) ddl.tm_year=a[0];
+        		ddl.tm_mon=t[i-2];
+        		if(i>2) ddl.tm_year=t[0];
 			}
 		}
     }
