@@ -3,9 +3,10 @@
 
 task& task::operator=(const task& t)
 {
-	name  = t.name;
-	ddl   = t.ddl;
-	level = t.level;
+	name        = t.name;
+	ddl         = t.ddl;
+	level       = t.level;
+	description = t.description;
 
     return *this;
 }

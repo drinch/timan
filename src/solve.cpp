@@ -4,10 +4,14 @@
 void inputmodule(std::priority_queue<task> &t,std::priority_queue<task> &r) {
 	task task_;
 	std::ifstream in("list.txt", std::ios::in);
-	while(in>>task_.name>>task_.level>>task_.ddl.tm_year>>task_.ddl.tm_mon>>task_.ddl.tm_mday) t.push(task_);
+	while(in>>task_.name>>task_.level>>task_.ddl.tm_year>>task_.ddl.tm_mon>>task_.ddl.tm_mday>>task_.description) {
+		t.push(task_);
+	}
 	in.close();
 	std::ifstream in_("reminds.txt", std::ios::in);
-	while(in_>>task_.name>>task_.level>>task_.ddl.tm_year>>task_.ddl.tm_mon>>task_.ddl.tm_mday) r.push(task_);
+	while(in_>>task_.name>>task_.level>>task_.ddl.tm_year>>task_.ddl.tm_mon>>task_.ddl.tm_mday>>task_.description) {
+		r.push(task_);
+	}
 	in_.close();
 	std::cout<<"System is ready.\n";
 }

@@ -18,6 +18,7 @@ struct task
     std::string name;
     tm ddl;
     int level;
+    std::string description;
 
     /**
      * @brief Assign the value of @a t to this task.
@@ -66,15 +67,18 @@ struct task
         		if(i>2) ddl.tm_year=t[0];
 			}
 		}
+		std::getline(std::cin,description);
     }
     void outf(std::ofstream &out)
     {
         out << name << " " << level << " " << ddl.tm_year << " " << ddl.tm_mon << " " << ddl.tm_mday << "\n";
+        out << "description:" << description << "\n";
     }
     void out()
     {
-        std::cout << "task name:" << name << "   level:" << level << "   ";
-        printf("deadline:%04d-%02d-%02d", ddl.tm_year, ddl.tm_mon, ddl.tm_mday);
+        std::cout << "task name:" << name << "\nlevel:" << level << "\n";
+        printf("deadline:%04d-%02d-%02d\n", ddl.tm_year, ddl.tm_mon, ddl.tm_mday);
+        std::cout << "description:" << description << "\n";
     }
 };
 #endif
